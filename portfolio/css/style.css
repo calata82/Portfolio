@@ -1,0 +1,587 @@
+@charset "UTF-8";
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  vertical-align: baseline;
+}
+
+/* Evitamos problemas con las imagenes */
+img, picture, video, iframe, figure {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+}
+
+/* Reseteamos los enlaces para funcionar como cajas... */
+a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+}
+
+/* ... excepto los que se encuentran en párrafos */
+p a {
+  display: inline;
+}
+
+/* Quitamos los puntos de los <li> */
+li {
+  list-style-type: none;
+}
+
+/* Configuramos anclas suaves */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Desactivamos estilos por defecto de las principales etiquetas de texto */
+h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, u, em {
+  font-size: 1em;
+  font-weight: inherit;
+  font-style: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Evitamos problemas con los pseudoelementos de quotes */
+blockquote:before, blockquote:after, q:before, q:after {
+  content: "";
+  content: none;
+}
+
+/* Configuramos el texto que seleccionamos */
+::-moz-selection {
+  background-color: var(--negro);
+  color: var(--blanco);
+}
+::selection {
+  background-color: var(--negro);
+  color: var(--blanco);
+}
+
+/* Nivelamos problemas de tipografías y colocación de formularios */
+form, input, textarea, select, button, label {
+  font-family: inherit;
+  font-size: inherit;
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
+  background-color: transparent;
+  color: inherit;
+  display: block;
+  /* opcional */
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+/* Reseteamos las tablas */
+table, tr, td {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Evitamos problemas con los SVG */
+svg {
+  width: 100%;
+  display: block;
+  fill: currentColor;
+}
+
+/* (Probándolo, no usar en producción) En el caso de añadir una  */
+/* p svg{
+  display: inline;
+  width: initial;
+} */
+/* Configuramos la tipografía para toda la web */
+body {
+  min-height: 100vh;
+  font-size: 100%;
+  font-family: Helvetica, Arial, sans-serif;
+  color: var(--negro);
+  /* opcional */
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
+  /* opcional */
+  font-smooth: always;
+  /* opcional */
+  -webkit-font-smoothing: antialiased;
+  /* opcional */
+  -moz-osx-font-smoothing: grayscale;
+}
+.Header{
+    width: 100%;
+    
+    background-color: transparent;
+
+    margin: .5rem .5rem .5rem .5rem;
+    padding: 1rem 4rem;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items:center;
+
+    position: absolute;
+
+    z-index: 1;
+    
+}
+.Header-img{
+    width: 6.25rem;
+    
+
+    margin: 0 0 0;
+
+    transition: all 1s ease;
+}
+.Header-img:hover{
+    
+    transform: rotatez(360deg);
+}
+
+.Header-ul{
+    
+    /* background-color: red; */
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+
+    gap: 5rem;
+}
+.Header-li{
+    width: 3rem;
+    color: white;
+    /* background-color: red; */
+
+   transition: all 1s ease;
+}
+
+
+.Header-li::before{
+    content:'';
+    width:3.5rem;
+    height: .3rem;
+    background-color: black;
+    margin: 0 0 1rem 0;
+
+    display: block;
+
+    cursor: pointer;
+
+    transition: background-color 1s ease;
+
+}
+.Header-li:hover::before{
+
+    background-color: white;
+}
+
+.Header-a{
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 700;
+
+    margin: 0 0 0;
+    text-transform:uppercase;
+
+}
+
+.Hamburguesa-button{
+    width: 2rem;
+    color: white;
+    padding: 0;
+    margin: 1rem 1rem;
+
+    display:none;
+
+    cursor:pointer;
+}
+.line{
+
+    width: 2rem;
+    border: 1px solid white;
+    margin: 7px 0 0 0;
+
+    display: block;
+
+}
+.Main{
+    width: 100%;
+    min-height: 95vh;
+    background-color: black;
+
+    position: relative;
+
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.Main-section{
+    width: 100%;
+    min-height: 20vh;
+    /* background-color: aqua; */
+    margin: 30vh 0 0 0;
+
+    position: absolute;
+
+    z-index: 2;
+
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    animation-name: aparece;
+    animation-duration: 6s;
+}
+@keyframes aparece{
+
+    0%{
+        opacity: 0;
+
+    }
+    7%{
+        opacity: 0;
+    }
+    
+    100%{
+        opacity: 1;
+    }
+    
+}
+.Main-ul{
+
+    width: 100%;
+    /* background-color: red; */
+    color: transparent;
+    margin: 4rem 0 0 0;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items:center;
+
+    position: relative;
+
+    -webkit-text-stroke-color: white;
+    -webkit-text-stroke-width: 2px;
+
+    gap: .5rem;
+}
+.Main-ul.container{
+
+    width: 100%;
+    color: white;
+    /* background-color: red; */
+    margin: 4rem 0 0 0;
+
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items:center;
+
+    position: absolute;
+    z-index: 2;
+
+    gap: .5rem;
+}
+.Main-li{
+    min-height: 8rem;
+    font-size: 6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    transition: opacity .4s ease-out;
+    
+}
+.Main-li:hover{
+
+    opacity:0;
+}
+
+.Main-wrapper{
+    width: 100%;
+    
+    font-size: 4rem;
+    /* background-color: greenyellow; */
+    color: white;
+    font-weight: 700;
+    text-align: center;
+
+    margin: 5rem 0 0 0;
+
+    text-transform: uppercase;
+
+    position: relative;
+    
+    animation-name: intro;
+    animation-duration: 4.5s;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+
+}
+.Main-h1{
+    width: 70%;
+    
+    background-color: black;
+    position: absolute;
+    z-index: 100;
+
+    transition: all .7s ease;
+}
+.Main-h1:hover{
+
+    opacity: 0;
+
+}
+.Main-h3{
+    width: 70%;
+    
+    
+    font-size: 4rem;
+    font-weight: 700;
+    text-align: center;
+    /* background-color:red ; */
+    color: white;
+    text-transform: uppercase;
+
+    position: absolute;
+
+    z-index: 10;
+}
+.Main-h2{
+    width: 70%;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    /* background-color: aqua; */
+
+    position:absolute;
+    left:85%;
+    top: 95%;
+    z-index: 10;
+}
+
+
+.Footer{
+    width: 100%;
+    min-height: 60vh;
+    margin: 40rem 0 0 0;
+    background-color: black;
+
+    position: absolute;
+    z-index: 100;
+}
+@keyframes intro{
+    0%{
+        transform: translatex(400%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+
+@media(max-width:950px){
+    .Header-nav{
+        display: none;
+    }
+    .Hamburguesa-button{
+        display: inherit;
+    }
+    .Header-img{
+        margin: 0;
+    }
+    .Header{
+        width:100%;
+        min-height: 20vh;
+    }
+    .Main-h1{
+        min-height: 25vh;
+       
+    }
+}
+@media(max-width:500px){
+    .Header-img{
+        display: none;
+    }
+    .Hamburguesa-button{
+        margin: auto;
+    }
+    .Header{
+        width:100%;
+        min-height: 10vh;
+    }
+}
+
+.Habilidades-section{
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    align-content: center;
+
+}
+.Article-h3{
+    width: 100%;
+    min-height: 15rem;
+    /* background-color: crimson; */
+
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.Habilidades-h3{
+    
+    /* background-color: aqua; */
+
+    font-size: 5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    animation-name: sube;
+    animation-duration: 2s;
+    
+}
+@keyframes sube{
+    0%{
+        transform: translateY(100%);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
+
+.Html-figure{
+    width: 50%;
+    min-height: 40rem;
+    /* background-color: orange; */
+}
+.Html-article{
+    width: 50%;
+    min-height: 40rem;
+    /* background-color: blue; */
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content:center;
+    align-content: center;
+}
+
+
+.Css-article{
+    width: 50%;
+    min-height: 40rem;
+    /* background-color: aqua; */
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content:center;
+    align-content: center;
+}
+.Css-figure{
+    width: 50%;
+    min-height: 40rem;
+    /* background-color: blueviolet; */
+}
+.Java-figure{
+    width: 50%;
+    min-height: 40rem;
+    /* background-color: red; */
+}
+.Java-article{
+    width: 50%;
+    min-height: 40rem;
+    /* background-color: yellowgreen; */
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content:center;
+    align-content: center;
+
+}
+.Html-figure{
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 1;
+}
+.Html-img{
+    width: 70%;
+    max-height: 70%;
+
+    border-radius: 1rem;
+    
+    -webkit-box-shadow: 1px 2px 5px 7px rgba(0,0,0,0.57); 
+    box-shadow: 1px 2px 5px 7px rgba(0,0,0,0.57);
+}
+.Html-p{
+    width: 80%;
+    font-size: 1.2rem;
+
+}
+
+.Css-figure{
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+
+}
+.Css-img{
+    width: 70%;
+    max-height: 70%;
+
+    border-radius: 1rem;
+    
+    -webkit-box-shadow: 1px 2px 5px 7px rgba(0,0,0,0.57); 
+    box-shadow: 1px 2px 5px 7px rgba(0,0,0,0.57);
+    
+}
+.Css-p{
+    width: 80%;
+    font-size: 1.2rem;
+}
+.Java-figure{
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+
+    
+}
+.Java-img{
+    width: 70%;
+    max-height: 70%;
+
+    border-radius: 1rem;
+    
+    -webkit-box-shadow: 1px 2px 5px 7px rgba(0,0,0,0.57); 
+    box-shadow: 1px 2px 5px 7px rgba(0,0,0,0.57);
+}
+.Java-p{
+    width: 80%;
+    font-size: 1.2rem;
+}
+
